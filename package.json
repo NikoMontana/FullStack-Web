@@ -1,0 +1,36 @@
+{
+  "name": "www",
+  "version": "0.0.1",
+  "description": "Shakle Web",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "dev:codeGen": "npm run apollo:schemaGen && npm run apollo:codeGen",
+    "apollo:schemaGen": "apollo schema:download --endpoint=http://localhost:4000 src/graphql/graphql-schema.json",
+    "apollo:codeGen": "apollo codegen:generate --localSchemaFile=src/graphql/graphql-schema.json --target=typescript --includes=src/graphql/*.ts --tagName=gql --addTypename --globalTypesFile=src/typescript/graphql-global-types.ts src/graphql/generated",
+    "deploy:prod": "cd api && npm run prisma:deploy:prod && npm run engine:deploy && cd ../ && now",
+    "dev:start:backend": "cd api && npm run start && cd ../",
+    "dev:start:frontend": "npm run dev"
+  },
+  "author": "Nikola Kalakovic",
+  "license": "ISC",
+  "dependencies": {
+    "@auth0/auth0-spa-js": "^1.1.1",
+    "apollo-boost": "^0.4.3",
+    "graphql": "^14.4.2",
+    "next": "^9.0.2",
+    "next-with-apollo": "^4.1.1",
+    "react": "^16.8.6",
+    "react-apollo": "^2.5.8",
+    "react-dom": "^16.8.6",
+    "styled-components": "^4.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^12.6.8",
+    "@types/react": "^16.8.23",
+    "@types/styled-components": "^4.1.18",
+    "typescript": "^3.5.3"
+  }
+}

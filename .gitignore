@@ -1,0 +1,17 @@
+/node_modules
+
+/out
+/build
+/.next
+/.next-export
+
+# web misc
+/package-lock.json
+/.DS_Store
+/npm-debug.log*
+
+# api
+/api/node_modules
+
+# node
+/.package-lock.json

@@ -1,0 +1,29 @@
+{
+    "version": 2,
+    "public": true,
+    "regions": [
+        "all"
+    ],
+    "builds": [
+        {
+            "src": "api/server.ts",
+            "use": "@now/node"
+        },
+        {
+            "src": "package.json",
+            "use": "@now/next"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/api(.*)",
+            "dest": "api/server.ts"
+        }
+    ],
+    "env": {
+        "PRISMA_ENDPOINT": "PRISMA_ENDPOINT",
+        "PRISMA_SECRET": "PRISMA_SECRET",
+        "PRISMA_MANAGEMENT_SECRET": "PRISMA_MANAGEMENT_SECRET",
+        "ENGINE_API_KEY": "ENGINE_API_KEY"
+    }
+}
