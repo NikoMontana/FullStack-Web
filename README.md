@@ -40,6 +40,9 @@ Scalable AaaS solution with roles & groups.
 * Apollo CLI (codegen & engine)
 * Prisma CLI
 
+# Init
+`cd api && npm run docker`
+
 # Run
 
 `npm run dev:start:frontend`
